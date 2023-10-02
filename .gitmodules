@@ -1,0 +1,3 @@
+[submodule "plc_ros_bridge"]
+	path = plc_ros_bridge
+	url = https://github.com/yuki-asano/plc_ros_bridge
