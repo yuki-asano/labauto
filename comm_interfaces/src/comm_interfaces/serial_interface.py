@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import serial
+import time
 
 
 class SerialInterface():
@@ -13,7 +14,7 @@ class SerialInterface():
         self.stopbits = stopbits
         self.timeout = timeout
 
-        self.ser = None
+        self.client = None
         self.is_open = False
 
 
@@ -22,10 +23,20 @@ class SerialInterface():
 
 
     def open(self):
-        self.ser = serial.Serial(self.port, self.baudrate, self.bytesize, self.parity, self.stopbits, self.timeout)
-        self.is_open = True
+        if not self.is_open:
+            try:
+                self.client = serial.Serial(self.port, self.baudrate, self.bytesize, self.parity, self.stopbits, self.timeout)
+                self.is_open = True
+                time.sleep(0.5)
+                print('Connection is established\n')
+            except Exception as e:
+                print('Connection error\n')
+
+
+    def is_connected(self):
+        return self.is_open
 
 
     def close(self):
-        if(self.ser):
-            self.ser.close()
+        if(self.client):
+            self.client.close()
