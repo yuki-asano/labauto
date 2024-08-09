@@ -23,9 +23,9 @@ def main():
     # Generate physbo
     pi = PhysboInterface(candidates_path, policy_load_dir, policy_save_dir, use_saved_policy=False, search_score='PI')
 
-    # Write physbo operation below
-    ## Following procedure is important for correct generation of result data.
-    ## search -> write (and update -> visualize)
+    # Procedure of search and register data to PHYSBO
+    # - Following procedure is important for correct generation of result data.
+    # - search -> write (and update -> visualize)
 
     # Search with Random search for initial step
     for i in range(3):
