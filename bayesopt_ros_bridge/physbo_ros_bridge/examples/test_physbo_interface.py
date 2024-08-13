@@ -17,7 +17,7 @@ def get_data_from_result_list(index):
 def main():
     # dir setting
     candidates_path  = './data/candidates.csv'
-    policy_load_dir = './data/result'
+    policy_load_dir = './data/load'
     policy_save_dir = './data/result'
 
     # Generate physbo
@@ -33,7 +33,7 @@ def main():
         result = get_data_from_result_list(pi.get_next_index())  # get result/evaluation data from experiment. (Result list is used for this test program).
         pi.write_result(result)  # write result to PHYSBO
     # Search with Bayesian optimization
-    for i in range(7):
+    for i in range(17):
         pi.search_next_param_bayes()
         result = get_data_from_result_list(pi.get_next_index())
         pi.write_result(result)
