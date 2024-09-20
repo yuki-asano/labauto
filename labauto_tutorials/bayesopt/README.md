@@ -1,13 +1,11 @@
-This is a bayesopt tutorial using PHYSBO
+# Bayesopt tutorial using PHYSBO
 
 
 ## PHYSBO
 PHYSBO is an optimization tools for PHYsics based on Bayesian Optimization
-
-### doc
+- doc  
 https://www.pasums.issp.u-tokyo.ac.jp/physbo/en
-
-### source code
+- source code  
 https://github.com/issp-center-dev/PHYSBO
 
 
@@ -22,8 +20,8 @@ sudo pip3 install Cython
 sudo pip3 install matplotlib
 ```
 
-- install physbo
-  - https://github.com/issp-center-dev/PHYSBO#install
+- install physbo  
+https://github.com/issp-center-dev/PHYSBO#install
 
 
 ## Usage
