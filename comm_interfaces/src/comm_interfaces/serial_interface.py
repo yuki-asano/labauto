@@ -6,7 +6,7 @@ import time
 
 
 class SerialInterface():
-    def __init__(self, port='/dev/ttyUSB0', baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PARITY_EVEN, stopbits=serial.STOPBITS_ONE, timeout=1.0):
+    def __init__(self, port='/dev/ttyUSB0', baudrate=9600, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, timeout=1.0):
         self.port =  port
         self.baudrate = baudrate
         self.bytesize = bytesize
@@ -40,3 +40,23 @@ class SerialInterface():
     def close(self):
         if(self.client):
             self.client.close()
+
+
+    def write(self, cmd):
+        # cmd: byte
+        self.client.write(cmd)
+
+
+    def write_str(self, cmd_str):
+        # cmd: string
+        cmd = cmd_str.encode()  # str to byte
+        self.client.write(cmd)
+
+
+    def readline(self):
+        return self.client.readline()
+
+
+    def readline_str(self):
+        rcv_data = self.client.readline()
+        return rcv_data.decode()  # byte to str
